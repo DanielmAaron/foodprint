@@ -21,12 +21,13 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
 
 const fs = require('fs');
-const infuraKey = fs.readFileSync(".infurakey").toString().trim();
-const MNEMONIC = fs.readFileSync(".secret").toString().trim();
-const FROMADDRESS = fs.readFileSync(".fromaddress").toString().trim();
 
-const infuraRinkebyURL = "https://rinkeby.infura.io/v3/"+infuraKey;
-const maticMumbaiURL = "https://rpc-mumbai.matic.today";
+const infuraKey = fs.readFileSync('.infurakey').toString().trim();
+const MNEMONIC = fs.readFileSync('.secret').toString().trim();
+const FROMADDRESS = fs.readFileSync('.fromaddress').toString().trim();
+
+const infuraRinkebyURL = `https://rinkeby.infura.io/v3/${infuraKey}`;
+const maticMumbaiURL = 'https://rpc-mumbai.matic.today';
 
 module.exports = {
   /**
@@ -47,28 +48,28 @@ module.exports = {
     // options below to some value.
     //
     development: {
-     host: "127.0.0.1",     // Localhost (default: none)
-     port: 8545,            // Standard Ethereum port (default: none)
-     network_id: "*",       // Any network (default: none)
+      host: '127.0.0.1', // Localhost (default: none)
+      port: 8545, // Standard Ethereum port (default: none)
+      network_id: '*', // Any network (default: none)
     },
 
     rinkeby: {
-      provider: function() {
-        return new HDWalletProvider(MNEMONIC, infuraRinkebyURL,1)
+      provider() {
+        return new HDWalletProvider(MNEMONIC, infuraRinkebyURL, 1);
       },
       network_id: 4,
       from: FROMADDRESS, // account from which to deploy
     },
 
     mumbai: {
-      provider: function() {
-        return new HDWalletProvider(MNEMONIC, maticMumbaiURL)
+      provider() {
+        return new HDWalletProvider(MNEMONIC, maticMumbaiURL);
       },
       network_id: 80001,
       confirmations: 2,
       timeoutBlocks: 200,
-      skipDryRun: true
-    }
+      skipDryRun: true,
+    },
   },
 
   // Set default mocha options here, use special reporters etc.
@@ -88,6 +89,6 @@ module.exports = {
       //  },
       //  evmVersion: "byzantium"
       // }
-    }
-  }
-}
+    },
+  },
+};
