@@ -24,6 +24,9 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "latest",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-clean-css": "latest",
