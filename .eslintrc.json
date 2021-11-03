@@ -11,5 +11,13 @@
         // "ecmaVersion": 13
     },
     "rules": {
+        "func-style": [
+            "error",
+            "declaration",
+            {
+                "allowArrowFunctions": false
+            }
+        ]
     }
 }
+
